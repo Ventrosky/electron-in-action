@@ -1,0 +1,22 @@
+{
+  "name": "bookmarker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "electron-in-action",
+  "version": "1.0.0",
+  "description": "Source code and exercises from the book \"Electron in Action\"",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ventrosky/electron-in-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.0.0",
+    "marked": "^0.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Ventrosky/electron-in-action/issues"
+  },
+  "homepage": "https://github.com/Ventrosky/electron-in-action#readme"
+}

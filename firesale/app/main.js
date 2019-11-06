@@ -1,4 +1,5 @@
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow, dialog, Menu } = require('electron');
+const applicationMenu = require('./application-menu');
 const fs = require('fs');
 const chokidar = require('chokidar');
 const path = require('path');
@@ -149,6 +150,7 @@ const createWindow = exports.createWindow = () => {
 };
 
 app.on('ready', () => {
+    Menu.setApplicationMenu(applicationMenu);
     createWindow();
 });
 

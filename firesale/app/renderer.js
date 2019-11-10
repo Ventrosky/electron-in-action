@@ -1,4 +1,4 @@
-const { remote, ipcRenderer } = require('electron');
+const { remote, ipcRenderer, shell } = require('electron');
 const { Menu } = remote;
 const path = require('path');
 const mainProcess = remote.require('./main.js');

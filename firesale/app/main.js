@@ -1,5 +1,5 @@
 const { app, BrowserWindow, dialog, Menu } = require('electron');
-const applicationMenu = require('./application-menu');
+const createApplicationMenu = require('./application-menu');
 const fs = require('fs');
 const chokidar = require('chokidar');
 const path = require('path');
@@ -13,6 +13,7 @@ const openFile = exports.openFile = (targetWindow, file) => {
     app.addRecentDocument(file);
     targetWindow.setRepresentedFilename(file);
     targetWindow.webContents.send('file-opened', file, content);
+    createApplicationMenu();
 };
 
 const getFileFromUser =  exports.getFileFromUser = (targetWindow) => {
@@ -117,7 +118,9 @@ const createWindow = exports.createWindow = () => {
         newWindow.show();
         newWindow.webContents.openDevTools();
     });
-    
+
+    newWindow.on('focus', createApplicationMenu);
+
     newWindow.on('close', (event) => {
         if (newWindow.isDocumentEdited()) {
             event.preventDefault();
@@ -141,6 +144,7 @@ const createWindow = exports.createWindow = () => {
 
     newWindow.on('closed', () => {
         windows.delete(newWindow);
+        createApplicationMenu();
         stopWatchingFile(newWindow);
         newWindow = null;
     });
@@ -150,7 +154,7 @@ const createWindow = exports.createWindow = () => {
 };
 
 app.on('ready', () => {
-    Menu.setApplicationMenu(applicationMenu);
+    createApplicationMenu();
     createWindow();
 });
 

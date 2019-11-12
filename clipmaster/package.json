@@ -4,6 +4,7 @@
   "description": "A clipboard manager built in Electron.",
   "main": "app/main.js",
   "scripts": {
+    "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
     "start": "electron ."
   },
   "repository": {

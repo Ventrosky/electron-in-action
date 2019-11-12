@@ -1,0 +1,30 @@
+{
+  "name": "clipmaster-9000",
+  "version": "1.0.0",
+  "description": "A menubar application with a rich UI.",
+  "main": "app/main.js",
+  "scripts": {
+    "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ventrosky/electron-in-action.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "clipboard"
+  ],
+  "dependencies": {
+    "electron": "^7.0.0",
+    "menubar": "^7.0.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "nodemon": "^1.19.4"
+  }
+}

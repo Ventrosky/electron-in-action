@@ -4,14 +4,15 @@
   "description": "An application for keeping track of the things you need to pack.",
   "main": "app/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "rebuild": "electron-rebuild -f -w sqlite3",
     "sass-compile": "npx sass app/style.scss app/style.css",
     "sass-watch": "npx sass --watch --no-source-map style.scss style.css",
     "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "electron-rebuild",
-    "postinstall2": "electron-builder install-app-deps"
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "import-forge": "electron-forge import"
   },
   "keywords": [
     "electron"
@@ -20,15 +21,12 @@
   "license": "MIT",
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "electron": "^7.0.0",
-    "electron-builder": "^22.1.0",
-    "electron-prebuilt-compile": "^4.0.0",
+    "electron-compile": "^6.4.4",
+    "electron-squirrel-startup": "^1.0.0",
     "idb": "^2.0.4",
-    "knex": "^0.20.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "sqlite3": "^4.1.0"
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -45,7 +43,11 @@
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "electron-devtools-installer": "^2.2.4",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "4.0.0",
     "electron-react-devtools": "^0.5.3",
     "electron-rebuild": "^1.8.6",
     "eslint": "^6.6.0",
@@ -55,5 +57,37 @@
     "node-abi": "^2.12.0",
     "nodemon": "^1.19.4",
     "react-hot-loader": "^4.12.17"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "jetsetter"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "jetsetter"
+      }
+    }
   }
 }

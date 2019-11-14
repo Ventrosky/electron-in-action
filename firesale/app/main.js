@@ -107,16 +107,16 @@ const createWindow = exports.createWindow = () => {
         y,
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webSecurity: false
         }
     });
-
-    newWindow.loadFile(path.resolve('app/index.html'));
-    //`file://${__dirname}/index.html`
+    newWindow.loadURL(`file://${__dirname}/index.html`);
+    //newWindow.loadFile(path.resolve('app/index.html'));
     newWindow.once('ready-to-show', () => {
         newWindow.firesaleEdit = false;
         newWindow.show();
-        newWindow.webContents.openDevTools();
+        //newWindow.webContents.openDevTools();
     });
 
     newWindow.on('focus', createApplicationMenu);

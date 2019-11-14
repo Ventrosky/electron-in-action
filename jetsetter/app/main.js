@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import { enableLiveReload } from 'electron-compile';
-import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+//import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 
 const path = require('path');
 
@@ -23,13 +23,15 @@ app.on('ready', () => {
       nodeIntegration: true
     }
   });
-  mainWindow.loadFile(path.resolve('app/index.jade'));
+  //mainWindow.loadFile(path.resolve('app/index.jade'));
+  mainWindow.loadURL(`file://${__dirname}/index.jade`);
   mainWindow.once('ready-to-show', async () => {
     console.log('ready-to-show');
     mainWindow.show();
-    if (isDevMode) {
-      await installExtension(REACT_DEVELOPER_TOOLS);
+    mainWindow.webContents.openDevTools();
+    /*if (isDevMode) {
+      //await installExtension(REACT_DEVELOPER_TOOLS);
       mainWindow.webContents.openDevTools();
-    }
+    }*/
   });
 });

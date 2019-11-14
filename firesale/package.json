@@ -2,11 +2,16 @@
   "name": "electron-in-action",
   "version": "1.0.0",
   "description": "Source code and exercises from the book \"Electron in Action\"",
+  "productName": "Fire Sale",
   "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "npm run build-mac && npm run build-win && npm run build-linux",
+    "build-mac": "electron-packager . --platform=darwin --out=build --icons=icons/Icon.icns --asar --overwrite",
+    "build-win": "electron-packager . --platform=win32 --out=build --icons=icons/Icon.ico --asar --overwrite",
+    "build-linux": "electron-packager . --platform=linux --out=build --icons=icons/Icon.png --asar --overwrite"
   },
   "repository": {
     "type": "git",
@@ -21,6 +26,7 @@
     "sanitize-html": "^1.20.1"
   },
   "devDependencies": {
+    "electron-packager": "^14.1.0",
     "nodemon": "^1.19.4"
   },
   "bugs": {

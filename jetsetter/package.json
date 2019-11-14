@@ -5,10 +5,13 @@
   "main": "app/main.js",
   "scripts": {
     "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3",
     "sass-compile": "npx sass app/style.scss app/style.css",
     "sass-watch": "npx sass --watch --no-source-map style.scss style.css",
     "dev": "echo \"npx nodemon --watch * --exec 'npx electron .'\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "electron-rebuild",
+    "postinstall2": "electron-builder install-app-deps"
   },
   "keywords": [
     "electron"
@@ -18,10 +21,14 @@
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "electron": "^7.0.0",
+    "electron-builder": "^22.1.0",
     "electron-prebuilt-compile": "^4.0.0",
+    "idb": "^2.0.4",
+    "knex": "^0.20.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "sqlite3": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -40,6 +47,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "electron-devtools-installer": "^2.2.4",
     "electron-react-devtools": "^0.5.3",
+    "electron-rebuild": "^1.8.6",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",

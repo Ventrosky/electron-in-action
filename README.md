@@ -1,7 +1,8 @@
 # electron-in-action
-Source code and exercises from the book "Electron in Action"
+Example appications from the book [_Electron in Action_](https://bit.ly/electronjs).
 * *bookmarker* manage bookmarks
 * *firesale* markdown editor
 * *clipmaster* clipboard manager
 * *clipmaster-9000* UI for clipmaster
 * *jetsetter* packing tracker
+* *clipmaster-9000-spectron* automated tests
